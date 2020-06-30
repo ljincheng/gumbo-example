@@ -1,0 +1,9 @@
+.DS_Store
+.settings
+build
+xcode
+lib
+test/flai_main.cpp
+*/build/*
+*/xcode/*
+*/lib/*

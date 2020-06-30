@@ -1,0 +1,39 @@
+
+cmake_minimum_required(VERSION 3.2)
+
+include_directories("/usr/local/include")
+include_directories("/usr/local/include/gq")
+include_directories("/usr/include/json-c")
+link_directories("/usr/local/lib")
+link_directories("/use/lib64")
+
+
+PROJECT(bebe_gumbo)
+
+set(CMAKE_CXX_STANDARD 11)
+set(bebe_gumbo_SOURCE_DIRECTORY ${PROJECT_SOURCE_DIR}/src)
+
+INCLUDE_DIRECTORIES(
+include
+)
+
+#ADD_SUBDIRECTORY(src)
+AUX_SOURCE_DIRECTORY(src DIR_SRCS)
+
+#SET(TEST_BEBE
+#${DIR_SRCS}
+#)
+
+add_subdirectory(test)
+
+#add_library(${PROJECT_NAME} SHARED ${PROJLIB_SRCS})
+
+#ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS}/main.c)
+ADD_EXECUTABLE(${PROJECT_NAME} ${DIR_SRCS})
+
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} curl)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} gumbo)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} gq)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} uriparser)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} sqlite3)
+TARGET_LINK_LIBRARIES(${PROJECT_NAME} jsoncpp)
